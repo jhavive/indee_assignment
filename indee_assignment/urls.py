@@ -23,5 +23,7 @@ urlpatterns = [
   	# url(r'^', include(router.urls)),
     url(r'^$', views.Login.as_view(),name="login"),
     url(r'^category/$', views.Category.as_view(),name="category"),
+    url(r'^signup/$', views.CreateUser.as_view(),name="CreateUser"),
+    url(r'^logout/$', views.logout_view,name="CreateUser"),
 ]+ staticfiles_urlpatterns()
 # ]+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

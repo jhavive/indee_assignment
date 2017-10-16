@@ -1,4 +1,6 @@
 from django.shortcuts import render,redirect
+from django.contrib.auth import authenticate,logout
+from django.contrib.auth.models import User
 from django.template import loader
 from django.http import HttpResponse
 import models,json
@@ -12,7 +14,26 @@ class Login(APIView):
 
 	def post(self, request, format=None):
 		print request
-		return redirect("/category")
+		user = authenticate(username=request.POST.get('username'), password=request.POST.get('password'))
+		if user is not None:
+		    return redirect("/category")
+		return render(request, 'app/login.html',)
+
+def logout_view(request):
+	logout(request)
+	return redirect("/")
+	
+class CreateUser(APIView):
+
+	def get(self, request, format=None):
+		return render(request, 'app/signup.html',)
+
+	def post(self, request, format=None):
+		user = User.objects.create_user(request.POST.get('username'),'',request.POST.get('password'))
+		if user is not None:
+			print "abc"
+			return redirect("/category")
+		return render(request, 'app/signup.html',)
 
 class Category(APIView):
 
