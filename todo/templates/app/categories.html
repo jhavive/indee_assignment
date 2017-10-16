@@ -1,0 +1,15 @@
+<div style="border: 1px solid #ffffff;background: #f0f0f0;">
+<p style="font-color:#fff;">{{category.title}}</p>
+<br>
+{% for task in tasks %}
+	{% include "app/tasks.html" %}
+{% endfor %}
+<form action="/category/" method="post" >
+	<div class="row">
+		<input type="hidden" name="category_id" value="{{category.id}}">
+		<div class="col-md-3"><input type="text" name="title" placeholder="New Task"></div>
+		<div class="col-md-3"><textarea name="description" placeholder="Description"></textarea></div>
+		<div class="col-md-3"><input type="submit" name="submit"></input></div>
+	</div>
+</form>
+</div>

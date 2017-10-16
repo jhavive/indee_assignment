@@ -102,4 +102,19 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
 
+# STATIC_URL = '/static/'
+
+# STATICFILES_DIRS = [
+#     os.path.join(BASE_DIR, 'static/')  # add STATIC_ROOT to DIRS
+# ]
+
+# PROJECT_ROOT = os.path.abspath(os.path.dirname(__file__))
+
+# STATICFILES_DIRS = (
+#     os.path.join(PROJECT_ROOT, 'static'),
+# )
+
+# print str(STATICFILES_DIRS)
+
+STATIC_ROOT = '/home/jhavive/Documents/vavarna/elastic-test/indee_assignment/indee_assignment/static'
 STATIC_URL = '/static/'

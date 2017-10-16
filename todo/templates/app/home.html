@@ -1,0 +1,22 @@
+{% extends "app/base_site.html" %}
+
+{% block content %}
+<div id="add">
+	<form action="/category/" method="post">
+		<label>Title</label>
+		<input type="text" name="title" placeholder="New category">
+		<input type="submit" name="submit"></input>
+	</form>
+</div>
+
+<div id="board" class="row">
+	
+	{% for category in categories %}
+		<div class="col-md-3">	
+		{% include "app/categories.html" %}
+		</div>
+	{% endfor %}
+	
+</div>
+
+{% endblock content %}
